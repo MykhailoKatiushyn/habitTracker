@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+    background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
+}
+
+.tracker {
+    width: 30%; 
+    padding: 20px;
+    background-color: #5a5a5a; 
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    color: #fff;
+}
+
+.tracker__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.task {
+    position: relative;
+    margin-bottom: 30px;
+    background-color: #818181;
+    transition: background-color 0.3s ease;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    padding: 20px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.create-task__title {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.create-task__input-field {
+    display: flex;
+    align-items: flex-start;
+}
+.create-task__input {
+    width: 300px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+ .create-task__button {
+    margin-left: 20px;
+    width: 100px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color:#fffefe;
+}
+
+.create-task__button:active {
+    background-color: #d6d6d6;
+    transform: scale(0.95);
+}
+
+.task__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    
+}
+
+.task__button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color:#fffefe;
+}
+
+.task__button--done::after {
+    content: '✓';
+}
+.task__title--done {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    color:rgb(63, 63, 63);
+    text-decoration-color: black;
+}
+
+.task::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.task--done {
+    background: #ebebeb;;
+}
+
+.task.task--done::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .tracker {
+        width: 90%;           /* На телефоне трекер шириной почти весь экран */
+        padding: 15px;
+    }
+
+    .create-task__input-field {
+        flex-direction: column; /* Расположим input и кнопку друг под другом */
+        align-items: stretch;
+    }
+
+    .create-task__input {
+        width: 100%;           /* input растягивается по ширине контейнера */
+        margin-bottom: 10px;
+    }
+
+    .create-task__button {
+        width: 100%;
+        margin-left: 0;
+        height: 40px;
+    }
+}
